@@ -89,7 +89,7 @@ async function onSubmit (event: FormSubmitEvent<Schema>) {
 
 
   // hit handle login function
-   await authStore.login()
+    await authStore.login()
    // get user
     await authStore.getUser();
    // route user
@@ -102,9 +102,9 @@ async function onSubmit (event: FormSubmitEvent<Schema>) {
 }
 
 // dfines custom layout
-definePageMeta({
- middleware:["guest"]
-})
+// definePageMeta({
+//  middleware:["guest"]
+// })
 </script>
 <style>
     

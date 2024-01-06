@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public:{
       baseUrl:process.env.BASE_URL, 
+      backendUrl:process.env.BACKEND_URL, 
       // encryptStorageKey:'8Jv7sT3qL4fRnKpW9yXh6ZbN2mUcDxG5'
     }
   },

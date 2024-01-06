@@ -10,17 +10,26 @@ export interface Token {
 }
 
 export interface User {
-    id:                       number | null;
-    organisation:             string | null;
-    email:                    string | null;
-    phone:                    string | null;
-    bio:                      string | null;
-    address:                  string | null;
-    avatar:                   string | null;
-    email_verified_at:        Date | null;
-    email_verification_token: string | null;
-    created_at:               Date | null;
-    updated_at:               Date | null;
+    id?:                       number | null ;
+    organisation?:             string | null ;
+    email?:                    string | null ;
+    phone?:                    string | null ;
+    bio?:                      string | null ;
+    address?:                  string | null ;
+    avatar?:                   string | null ;
+    email_verified_at?:        Date | null ;
+    email_verification_token?: string | null ;
+    created_at?:               Date | null ;
+    updated_at?:               Date | null ;
+}
+
+export interface UpdateUser {
+    organisation?:             string | null 
+    email?:                    string | null ;
+    phone?:                    string | null ;
+    bio?:                      string | null ;
+    address?:                  string | null ;
+    avatar?:                   File | null ;
 }
 
 
@@ -36,6 +45,7 @@ export interface RegisterCredentials {
     password: string | null
     password_confirmation: string | null,
 }
+
 
 
 // invoice type
@@ -79,8 +89,9 @@ export interface Invoice {
     client_email:           string;
     client_phone:           string;
     client_alternate_phone: string;
-    total_amount:           string;
-    delivery_amount:        string;
+    total_amount:           number;
+    subt_total:             number;
+    delivery_amount:        number;
     additional_information: string;
     status:                 string;
     created_at:             Date;
@@ -94,8 +105,8 @@ export interface InvoiceItem {
     invoice_id: number;
     product_id: number;
     quantity:   number;
-    total:      string;
-    price:      string;
+    total:      number;
+    price:      number;
     created_at: Date;
     updated_at: Date;
     product:    Product;
@@ -119,4 +130,14 @@ export interface Link {
     active: boolean;
 }
 
+
+// selected product
+export interface SelectedProduct {
+    id:string,
+    label: string,
+    product_id: number,
+    quantity: number,
+    price: number,
+    total: number
+}
 

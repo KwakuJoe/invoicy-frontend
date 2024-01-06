@@ -6,7 +6,8 @@
 
         <div class="flex h-screen">
         <!-- Navigation sidebar on the left -->
-        <VerticalNav/>
+        <DashboardNav />
+
 
         <!-- Main content on the right -->
         <div class="flex-1 p-4">

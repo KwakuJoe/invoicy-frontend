@@ -1,19 +1,19 @@
 <template>
     <!-- title text & tabs -->
-    <div class="flex flex-row justify-between items-center w-full">
+    <!-- <div class="flex flex-row justify-between items-center w-full">
         <div class="flex flex-col ">
             <h4 class="text-2xl font-medium">Invoices</h4>
             <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Manage all your invoices on this screen </p>
-        </div>
+        </div> -->
 
-        <!-- tabs -->
-        <UTabs :items="items" :default-index="2"   />
-    </div>
+    <!-- tabs -->
+    <!-- <UTabs :items="items" :default-index="2"   /> -->
+    <!-- </div> -->
 
     <!-- Search , Sort etc -->
-    <div class="flex items-center w-full my-4 justify-between">
-        <!--  -->
-        <div class="flex flex-row gap-x-2">
+    <!-- <div class="flex items-center w-full my-4 justify-between"> -->
+    <!--  -->
+    <!-- <div class="flex flex-row gap-x-2">
             <USelectMenu  v-model="selected" :options="people" />
             <UInput
                 icon="i-heroicons-magnifying-glass-20-solid"
@@ -23,61 +23,69 @@
                 placeholder="Search..."
                 model-value=""
                 />
-        </div>
+        </div> -->
 
-        <!--  add invoice button-->
-        <UButton icon="i-heroicons-plus"  label="Create invoice"/>
+    <!--  add invoice button-->
+    <!-- <UButton icon="i-heroicons-plus" to="/dashboard/invoice/create-invoice"  label="Create invoice"/> -->
 
-    </div>
+    <!-- </div> -->
 
     <!-- table-->
-    <InvoiceTable :data="data" :error="error" :pending="pending" @refresh="refresh"/>
+    <!-- <InvoiceTable :data="data" :error="error" :pending="pending" @refresh="refresh"/> -->
 
+    <div class="flex flex-col w-full justify-center ">
+        <div class="flex flex-col gap-y-3 items-center px-5 py-2 rounded-sm mt-5">
+            <p class="text-base font-medium">Welcome ! {{ userCookie?.organisation }}</p>
+            <p class="text-sm text-blue-400 ">{{ userCookie?.email }}</p>
+            <UAlert icon="i-heroicons-exclamation-triangle" color="red" class="w-1/2" variant="soft"
+                title="Heads Account not activated!"
+                description="Head over to your profile to activate your account" on />
+        </div>
+    </div>
 </template>
 <script setup lang="ts">
-    import {useAuthStore} from '~/stores/useAuthStore'
-    import type { Invoices, User} from '~/types/types';
-    
-    // filter
-    const people = ['name', 'cost',]
-    const selected = ref(people[0])
+// import {useAuthStore} from '~/stores/useAuthStore'
+import type { User } from '~/types/types';
 
-    // tabs
-    const items = [
-        {label: 'Paid'}, 
-        {label: 'Draft'}, 
-        {label: 'Cancelled'}
-    ]
+// filter
+// const people = ['name', 'cost',]
+// const selected = ref(people[0])
 
-    // instance
-    const authStore = useAuthStore();
+// tabs
+// const items = [
+//     {label: 'Paid'}, 
+//     {label: 'Draft'}, 
+//     {label: 'Cancelled'}
+// ]
 
-    // base ur from env in runtime config
-    const runTimeConfig = useRuntimeConfig()
-    const baseUrl:String =  runTimeConfig.public.baseUrl
+// instance
+// const authStore = useAuthStore();
 
-    const tokenCookie = useCookie<string | null>('tokenCookie')
-    const userCookie = useCookie<User | null>('userCookie')
+// base ur from env in runtime config
+// const runTimeConfig = useRuntimeConfig()
+// const baseUrl:String =  runTimeConfig.public.baseUrl
 
-    // get invoices by user
-    const {pending, error, data, refresh} = await useFetch<Invoices>(`${baseUrl}/api/invoices?filter[user_id]=${userCookie.value?.id}`, {
-        cache:'default',
-        keepalive:true,
-        method:"GET",
-        headers:{
-            "Accept": "application/json",
-            'Authorization': `Bearer ${tokenCookie.value}`
-        }
-                // watch:[isPostChanged],
-    });
+const tokenCookie = useCookie<string | null>('tokenCookie')
+const userCookie = useCookie<User | null>('userCookie')
+
+// get invoices by user
+// const {pending, error, data, refresh} = await useFetch<Invoices>(`${baseUrl}/api/invoices?filter[user_id]=${userCookie.value?.id}`, {
+//     cache:'default',
+//     keepalive:true,
+//     method:"GET",
+//     headers:{
+//         "Accept": "application/json",
+//         'Authorization': `Bearer ${tokenCookie.value}`
+//     }
+// watch:[isPostChanged],
+// });
 
 
 // dfines custom layout
-definePageMeta({
- layout: 'dashboard',
- middleware:["auth"]
-})
-</script>
-<style>
+// definePageMeta({
+//  layout: 'dashboard',
+//  middleware:["auth"],
 
-</style>
+// })
+</script>
+<style></style>

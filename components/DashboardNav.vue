@@ -6,15 +6,15 @@ const authStore = useAuthStore();
 
 const links = [
 {
-  label: 'Installation',
+  label: 'Invoices',
   icon: 'i-heroicons-home',
   to: '/'
 }, {
-  label: 'Vertical Navigation',
+  label: 'Clients',
   icon: 'i-heroicons-chart-bar',
   to: '/'
 }, {
-  label: 'Command Palette',
+  label: 'Products',
   icon: 'i-heroicons-command-line',
   to: '/'
 }]

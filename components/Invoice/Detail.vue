@@ -31,18 +31,17 @@
                         <!-- Quantity -->
                         <div class="flex flex-row items-center gap-x-1  rounded-full">
                             <p class="text-sm">Quantity :</p>
-                            <p class="text-sm font-semibold">12</p>
+                            <p class="text-sm font-semibold">{{ invoiceItem.quantity }}</p>
                         </div>
                         <!-- Proice -->
                         <div class="flex flex-row items-center gap-x-1  rounded-full">
                             <p class="text-sm">Price :</p>
-                            <p class="text-sm font-semibold">$1200.00</p>
+                            <p class="text-sm font-semibold">${{ invoiceItem.price }}</p>
                         </div>
                     </div>
                 </div>
                 <!-- total -->
-                <p class="text-sm font-semibold">$12.00</p>
-
+                <p class="text-sm font-semibold">${{ invoiceItem.total }}</p>
          </div>
 
          <!-- calcuation -->
@@ -52,18 +51,18 @@
             <!-- sub total -->
             <flex class="flex flex-row justify-between">
                <p class="text-sm">Subtotal</p>
-               <p class="text-sm ">$1200.00</p>
+               <p class="text-sm ">${{ invoice?.subt_total }}</p>
             </flex>
 
             <!-- delivery -->
             <flex class="flex flex-row justify-between">
                <p class="text-sm">Delivery</p>
-               <p class="text-sm ">$1200.00</p>
+               <p class="text-sm ">${{ invoice?.delivery_amount }}</p>
             </flex>
             <!-- delivery -->
             <flex class="flex flex-row justify-between">
                <p class="text-sm">Total amount</p>
-               <p class="text-sm font-semibold">$1200.00</p>
+               <p class="text-sm font-semibold">{{ invoice?.total_amount }}</p>
             </flex>
          </div>
 
@@ -89,16 +88,8 @@
                 </div>
                 <!-- total -->
                 <Icon name="ic:outline-more-horiz"/>
-
-
          </div>
       </div>
-
-
-
-
-
-
     </div> 
 </template>
 <script setup lang="ts">
@@ -108,6 +99,8 @@ import {type Invoices, type Invoice } from '~/types/types'
  const props = defineProps<{
     invoice: Invoice | null,
   }>()
+
+
 
 </script>
 <style>

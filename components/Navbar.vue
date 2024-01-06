@@ -6,9 +6,9 @@
       <div class="flex flex-row gap-x-1 items-center">
         <!-- logo -->
         <nuxt-link to="/dashboard">
-          <Icon name="basil:invoice-outline" class="text-gray-500 text-center text-4xl" />
+          <Icon name="basil:invoice-outline" class="text-blue-500 text-center text-4xl" />
         </nuxt-link>
-        <p class="font-medium">INVOICY</p>
+        <p class="font-medium ">Nuxt/Larave Auth</p>
       </div>
 
       <!-- toggle buttom -->
@@ -44,8 +44,8 @@
           <div v-if="!isAuthenticated" class="flex gap-x-3">
           <!-- navlinks slots --> 
             <slot></slot>
-            <UButton label="Start for free" />
-            <UButton label="Sign in" variant="ghost" />
+            <UButton to="/auth/register" label="Start for free" />
+            <UButton to="/auth/login" label="Sign in" variant="ghost" />
           </div>
 
           <!-- avatar drop -->

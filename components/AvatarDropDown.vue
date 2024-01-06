@@ -7,8 +7,8 @@
         <!-- Content -->
 
         <UVerticalNavigation :links="links" />
-          <hr />
-        <UButton class=" border-0" @click="logout"  icon="i-heroicons-arrow-left-on-rectangle" variant="link" color="white" label="logout"/>
+          <!-- <hr /> -->
+        <!-- <UButton class=" border-0" @click="logout"  icon="i-heroicons-arrow-left-on-rectangle" variant="link" color="white" label="logout"/> -->
       </template>
   </UPopover>
 </template>
@@ -16,17 +16,24 @@
   import {useAuthStore} from '~/stores/useAuthStore'
   import { type User} from '~/types/types'
 
-  const authStore = useAuthStore();
 
     const user = ref<User | null>(null)
     const userCookie = useCookie<User | null>('userCookie')
     const tokenCookie = useCookie<string | null>('tokenCookie')
     user.value = userCookie.value
 
-    function logout(){
+    async function logout(){
       userCookie.value = null,
       tokenCookie.value = null,
-      navigateTo('/auth/login');
+      await navigateTo('/auth/login');
+
+      const toast = useToast()
+        toast.add({
+        id: 'logout_success',
+        title: 'Logout successfully',
+        description: `You have successfully sign out, see you soon`,
+        color:"green"
+        });
     }
 
 
@@ -34,13 +41,20 @@
 
 
   // links
-  const links = [{
-  label: `${user.value?.organisation}`,
-  avatar: {
-    src: 'https://avatars.githubusercontent.com/u/739984?v=4'
-  },
-  // to:`/profile/${myUsername.value}`
-}]
+  const links = [
+    {
+      label: `${user.value?.organisation}`,
+      avatar: {
+      src: 'https://avatars.githubusercontent.com/u/739984?v=4'
+      },
+      to:'/account/profile'
+    },
+    {
+      label: 'Logout',
+      icon: 'i-heroicons-arrow-left-on-rectangle',
+      onclick:logout
+    },
+]
 
 
 

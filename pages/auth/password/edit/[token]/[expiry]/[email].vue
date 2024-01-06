@@ -76,14 +76,14 @@ async function onSubmit (event: FormSubmitEvent<Schema>) {
     // Do something with event.data
     console.log(event.data)
 
-    await authStore.updatedPassword(event.data.password.toString(), route.params.email.toString())
+    await authStore.updatePassword(event.data.password.toString(), route.params.email.toString())
 
     console.log('password updated')
 }
 
 // dfines custom layout
 definePageMeta({
- middleware:["password-link-verification"]
+     middleware:["password-link-verification"]
 })
 </script>
 <style>
