@@ -1,7 +1,7 @@
 <template>
     <UContainer>        
         <div class="flex flex-row justify-center w-full gap-x-3 mt-10">
-            <div class="lg:w-3/5 w-full flex flex-row justify-center">
+            <div class="lg:w-3/5 w-full px-3 flex flex-row justify-center">
                 <!-- Register forms -->
                 <UForm :schema="schema" :state="state" class="space-y-4 lg:w-3/5 w-full" @submit="onSubmit">
                     <!-- text -->
