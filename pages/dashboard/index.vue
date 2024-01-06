@@ -82,10 +82,9 @@ const userCookie = useCookie<User | null>('userCookie')
 
 
 // dfines custom layout
-// definePageMeta({
-//  layout: 'dashboard',
-//  middleware:["auth"],
+definePageMeta({
+ middleware:["auth"],
 
-// })
+})
 </script>
 <style></style>

@@ -25,7 +25,7 @@
                     </UFormGroup>
 
 
-                    <UButton :loading="is_updatePasword_loading" block class="h-10" type="submit">Login</UButton>
+                    <UButton :loading="is_updatePasword_loading" block class="h-10" type="submit">Update Password</UButton>
                 </UForm>
 
             </div>

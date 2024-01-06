@@ -71,10 +71,6 @@ const state = reactive({
   password:undefined,
 });
 
-const form = ref<LoginCredentials>({
-    email:null,
-    password:null
-});
 
 const userCookie = useCookie<User | null>('userCookie')
 const isAuthenticated =  computed(() => !!userCookie.value)
