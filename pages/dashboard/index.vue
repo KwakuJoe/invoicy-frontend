@@ -37,7 +37,7 @@
         <div class="flex flex-col gap-y-3 items-center px-5 py-2 rounded-sm mt-5">
             <p class="text-base font-medium">Welcome ! {{ userCookie?.organisation }}</p>
             <p class="text-sm text-blue-400 ">{{ userCookie?.email }}</p>
-            <UAlert icon="i-heroicons-exclamation-triangle" color="red" class="w-1/2" variant="soft"
+            <UAlert v-if="userCookie?.email_verified_at === null" icon="i-heroicons-exclamation-triangle" color="red" class="lg:w-1/2 w-full" variant="soft"
                 title="Heads Account not activated!"
                 description="Head over to your profile to activate your account" on />
         </div>

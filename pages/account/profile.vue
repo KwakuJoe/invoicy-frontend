@@ -3,7 +3,7 @@
   <!-- profile forms -->
   <div class="flex flex-row mt-5">
     <!-- Register forms -->
-    <UForm :schema="schema" :state="state" class="space-y-4 lg:w-3/5" @submit="onSubmit">
+    <UForm :schema="schema" :state="state" class="space-y-4 lg:w-3/5 w-full" @submit="onSubmit">
       
       <div>
         <h4 class="text-2xl font-medium">Profile</h4>
